@@ -1,0 +1,26 @@
+<h2>Score your current load</h2>
+
+<%= form_for(@load) fo |f| %>
+	<div class="form-group">
+		<div class="control-label col-md-1">
+			<%= f.label :score %>
+		</div>
+		<div class="col-md-11">
+			<%= f.text_field :score, class: 'form-control', placeholder: "Score your load", autofocus: true %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="control-label col-md-1">
+			<%= f.label :date %>
+		</div>
+		<div class="col-md-11">
+			<%= f.date_field :date, class: 'form-control', placeholder: "Entry date" %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-1 col-md-11">
+			<%= f.submit class: "btn btn-primary btn-lg pull-right" %>
+		</div>
+	</div>
+<% end %>
