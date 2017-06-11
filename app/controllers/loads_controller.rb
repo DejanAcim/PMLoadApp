@@ -1,8 +1,11 @@
-class LoadController < ApplicationController
+class LoadsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@load = Load.all
+	end
+
+	def show
 	end
 
 	def new
