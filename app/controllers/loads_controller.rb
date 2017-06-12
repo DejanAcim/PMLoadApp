@@ -28,6 +28,6 @@ class LoadsController < ApplicationController
 	private
 
 		def load_params
-			params.require(:load).permit(:score, :date)
+			params.require(:load).permit(:score, :date, :checkpoint)
 		end
 end

@@ -14,7 +14,15 @@
 			<%= f.label :date %>
 		</div>
 		<div class="col-md-3">
-			<%= f.datetime_select :date, class: 'form-control' %>
+			<%= f.date_select :date, class: 'form-control' %>
+		</div>
+	</div>
+		<div class="form-group">
+		<div class="control-label col-md-1">
+			<%= f.label :checkpoint %>
+		</div>
+		<div class="col-md-1">
+			<%= f.number_field :checkpoint, in: 10..16, step: 3.00, class: 'form-control' %>
 		</div>
 	</div>
 	<div class="form-group">

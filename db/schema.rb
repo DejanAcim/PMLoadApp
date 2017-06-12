@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611202943) do
+ActiveRecord::Schema.define(version: 20170612115457) do
 
   create_table "loads", force: :cascade do |t|
     t.integer "score"
-    t.datetime "date"
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "checkpoint"
     t.index ["user_id"], name: "index_loads_on_user_id"
   end
 
