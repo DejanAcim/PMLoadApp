@@ -7,5 +7,10 @@
 	  sample application.
   </h2>
 
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  <% if user_signed_in? %>
+   		<%= link_to "Score now!", new_load_path, class: "btn btn-lg btn-primary" %>
+ 	<% else %>
+ 			<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
+
 </div>

@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+	<%= link_to "New Load", new_load_path, class: "btn btn-default btn-lg"%>
+<% end %>
+<% if @loads.empty? %>
+	<h1>No Loads Created</h1>
+<% else %>
+	<% @loads.each do |load| %>
+		<div class="well well-lg">
+			<div class="article-title">
+				Score: <%= load.score %>
+			</div>
+			<div class="article-body">
+				Date: <%= load.date %>
+				Checkpoint: <%= load.checkpoint %>
+			</div>
+
+			<div class="author">
+				<small>Created by: <%= load.user.email %></small>
+			</div>
+		</div>
+	<% end %>
+<% end %>
