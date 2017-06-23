@@ -3,7 +3,7 @@ class LoadsController < ApplicationController
 
 	def index
 		@loads = Load.all
-		@load_today = Load.where("date >= ?", Time.zone.now.beginning_of_day)
+		@load_today = Load.where("date >= ?", Time.zone.today) # albo Date.today
 	end
 
 	def show
