@@ -4,6 +4,9 @@ class LoadsController < ApplicationController
 	def index
 		@loads = Load.all
 		@load_today = Load.where("date >= ?", Time.zone.today) # albo Date.today
+		@daily_availability = Load.daily_availability
+		@daily_score = @load_today.sum(:score)
+		@daily_workload = @daily_score / @daily_availability
 	end
 
 	def show

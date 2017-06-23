@@ -1,31 +1,59 @@
-<% if user_signed_in? %>
-	<%= link_to "New Load", new_load_path, class: "btn btn-default btn-lg"%>
-<% end %>
-<% if @loads.empty? %>
-	<h1>No Loads Created</h1>
-<% else %>
-	<% @loads.each do |load| %>
-		<div class="well well-lg">
-			<div class="article-title">
-				Score: <%= load.score %>
-			</div>
-			<div class="article-body">
-				Date: <%= load.date %><br>
-				Checkpoint: <%= load.checkpoint %>
-			</div>
+<div>
+	<h1>Today's Workload</h1>
+	<div>
+		Dzisiejsze obciążenie: <%= @daily_workload %>
+	</div>
+</div>
 
-			<div class="author">
-				<small>Created by: <%= load.user.email %></small>
-			</div>
-		</div>
-	<% end %>
-<% end %>
+<div>
+	<h2>Today's Availability</h2>
+	<div>
+		Dzisiejsza dostępność zespołu Dejana to: <%= @daily_availability %>
+	</div>
+</div>
 
-<h2>Today's Workload</h2>
+<div>
+	<h2>Today's Score</h2>
+	<div>
+		Dzisiejsza suma ocen: <%= @daily_score %>
+	</div>
+</div>
+
+<h3>Today's score report</h3>
 
 <% @load_today.each do |load| %>
 	<div class="well well-lg">
-		Name: <%= load.user.name %>
+		<div>
+			Name: <%= load.user.name %>
+		</div>
+		<div>
 		Score: <%= load.score %>
+		</div>
 	</div>
 <% end %>
+
+<div>
+	<% if user_signed_in? %>
+		<%= link_to "New Load", new_load_path, class: "btn btn-default btn-lg"%>
+	<% end %>
+	<% if @loads.empty? %>
+		<h1>No Loads Created</h1>
+	<% else %>
+		<% @loads.each do |load| %>
+			<div class="well well-lg">
+				<div class="article-title">
+					Score: <%= load.score %>
+				</div>
+				<div class="article-body">
+					Date: <%= load.date %><br>
+					Checkpoint: <%= load.checkpoint %>
+				</div>
+
+				<div class="author">
+					<small>Created by: <%= "#{load.user.email}" %></small>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+
