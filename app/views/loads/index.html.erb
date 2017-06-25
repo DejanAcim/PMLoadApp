@@ -1,3 +1,38 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h1>Listing Loads</h1>
+	</div>
+	<!-- http://edgeguides.rubyonrails.org/layouts_and_rendering.html
+	 -->
+	<table class="table">
+	  <tr>
+	    <th>Date</th>
+	    <th>Checkpoint</th>
+	    <th>PM</th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+
+	<% @loads.each do |load| %>
+	  <tr>
+	    <td><%= load.date %></td>
+	    <td><%= load.checkpoint %></td>
+	    <td><%= load.user.full_name %></td>
+	    <td><%= link_to "Show" %></td>
+	    <td><%= link_to "Edit" %></td>
+	    <td><%= link_to "Remove", load, method: :delete, data: { confirm: "Are you sure?" } %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
+
+
+
+<br>
+
+<%= link_to "New worklad", new_load_path %>
+
+
 <div>
 	<h1>Today's Workload</h1>
 	<div>
@@ -50,7 +85,7 @@
 				</div>
 
 				<div class="author">
-					<small>Created by: <%= "#{load.user.email}" %></small>
+					<small>Created by: <%= "#{load.user.full_name}" %></small>
 				</div>
 			</div>
 		<% end %>
