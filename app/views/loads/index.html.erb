@@ -18,14 +18,13 @@
 	    <td><%= load.date %></td>
 	    <td><%= load.checkpoint %></td>
 	    <td><%= load.user.full_name %></td>
-	    <td><%= link_to "Show" %></td>
-	    <td><%= link_to "Edit" %></td>
-	    <td><%= link_to "Remove", load, method: :delete, data: { confirm: "Are you sure?" } %></td>
+	    <td><%= link_to "Show", load_path(load), class: "btn btn-default btn-xs" %></td>
+	    <td><%= link_to "Edit", edit_load_path(load), class: "btn btn-default btn-xs" %></td>
+	    <td><%= link_to "Remove", load, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" %></td>
 	  </tr>
 	<% end %>
 	</table>
 </div>
-
 
 
 <br>
@@ -74,7 +73,7 @@
 	<% if @loads.empty? %>
 		<h1>No Loads Created</h1>
 	<% else %>
-		<% @loads.each do |load| %>
+		<% @loads_per_day.each do |load| %>
 			<div class="well well-lg">
 				<div class="article-title">
 					Score: <%= load.score %>
