@@ -21,6 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem "chartkick"
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -42,6 +43,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'faker'
 end
 
 group :development do
