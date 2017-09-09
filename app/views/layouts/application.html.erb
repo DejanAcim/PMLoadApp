@@ -17,8 +17,8 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",      root_path %></li>
-            <li><%= link_to "Score it!", new_load_path %></li>
-            <li><%= link_to "Workloads", loads_path %></li>
+            <li><%= link_to "Score it!", new_workload_path %></li>
+            <li><%= link_to "Workloads", workloads_path %></li>
             <li><%= link_to "Help",      static_pages_help_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
