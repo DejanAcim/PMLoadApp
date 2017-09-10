@@ -1,6 +1,6 @@
 class WorkloadsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
-	before_action :set_load, only: [:show, :edit]
+	before_action :set_workload, only: [:show, :edit]
 
 	def index
 		@workloads = Workload.all
@@ -25,7 +25,7 @@ class WorkloadsController < ApplicationController
 	end
 
 	def create
-		@workload = Workload.create(load_params)
+		@workload = Workload.create(workload_params)
 		@workload.user = current_user
 
 		if @workload.save
@@ -54,11 +54,11 @@ class WorkloadsController < ApplicationController
 
 	private
 
-		def load_params
-			params.require(:load).permit(:score, :date, :checkpoint)
+		def workload_params
+			params.require(:workload).permit(:score, :date, :checkpoint)
 		end
 
-		def set_load
+		def set_workload
 			@workload = Workload.find(params[:id])
 		end
 end

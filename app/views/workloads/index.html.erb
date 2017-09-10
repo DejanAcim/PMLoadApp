@@ -69,7 +69,7 @@
 
 <div>
 	<% if user_signed_in? %>
-		<%= link_to "New Load", new_load_path, class: "btn btn-default btn-lg"%>
+		<%= link_to "New Load", new_workload_path, class: "btn btn-default btn-lg"%>
 	<% end %>
 	<% if @workloads.empty? %>
 		<h1>No Workloads Created</h1>
