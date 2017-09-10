@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  score: 1.5
+  day: 2017-09-10
+
+two:
+  score: 1.5
+  day: 2017-09-10

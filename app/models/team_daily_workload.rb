@@ -1,0 +1,2 @@
+class TeamDailyWorkload < ApplicationRecord
+end
