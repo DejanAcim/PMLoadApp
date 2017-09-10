@@ -11,6 +11,9 @@ class WorkloadsController < ApplicationController
 		@workloads_per_day = Workload.all.group(:date)
 	end
 
+	def chart
+	end
+
 	def show
 	end
 
