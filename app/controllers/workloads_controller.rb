@@ -7,7 +7,7 @@ class WorkloadsController < ApplicationController
 		@workload_today = Workload.where("date >= ?", Time.zone.today) # albo Date.today
 		@daily_availability = Workload.daily_availability
 		@daily_score = @workload_today.sum(:score)
-		@daily_workload = @daily_score / @daily_availability
+		@daily_workload = @daily_score / @daily_availability # =team_daily_workload
 		@workloads_per_day = Workload.all.group(:date)
 	end
 
@@ -57,5 +57,9 @@ class WorkloadsController < ApplicationController
 
 		def set_workload
 			@workload = Workload.find(params[:id])
+		end
+
+		def team_daily_workload_params
+			params.require(:team_daily_workload).permit(:score, :day)
 		end
 end

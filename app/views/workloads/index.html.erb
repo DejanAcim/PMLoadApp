@@ -9,18 +9,19 @@
 	    <th>Date</th>
 	    <th>Checkpoint</th>
 	    <th>PM</th>
-	    <th></th>
+	    <th>Score</th>
 	    <th></th>
 	  </tr>
 
-	<% @workloads.each do |load| %>
+	<% @workloads.each do |workload| %>
 	  <tr>
-	    <td><%= load.date %></td>
-	    <td><%= load.checkpoint %></td>
-	    <td><%= load.user.full_name %></td>
-	    <td><%= link_to "Show", workload_path(load), class: "btn btn-default btn-xs" %></td>
-	    <td><%= link_to "Edit", edit_workload_path(load), class: "btn btn-default btn-xs" %></td>
-	    <td><%= link_to "Remove", load, method: :delete, data: { confirm: "Are you sure?" },
+	    <td><%= workload.date %></td>
+	    <td><%= workload.checkpoint %></td>
+	    <td><%= workload.user.full_name %></td>
+	    <td><%= workload.score %></td>
+	    <td><%= link_to "Show", workload_path(workload), class: "btn btn-default btn-xs" %></td>
+	    <td><%= link_to "Edit", edit_workload_path(workload), class: "btn btn-default btn-xs" %></td>
+	    <td><%= link_to "Remove", workload, method: :delete, data: { confirm: "Are you sure?" },
 																					class: "btn btn-danger btn-xs" %></td>
 	  </tr>
 	<% end %>

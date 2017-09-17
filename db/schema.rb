@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170910084107) do
+ActiveRecord::Schema.define(version: 20170917154317) do
 
   create_table "team_daily_workloads", force: :cascade do |t|
     t.float "score"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170910084107) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "checkpoint"
+    t.boolean "confirmed", default: false
     t.index ["user_id"], name: "index_workloads_on_user_id"
   end
 
