@@ -30,16 +30,17 @@ end
 puts ""
 puts "Workloads ready."
 
-# Not ready yet.
-# --------------------------
-# print "Scores"
-# User.all.each do |u|
-# 	3.times do
-# 		Load.create!(
-# 			score: rand(scores),
-# 			user_id: u,
-# 			date: Date.today)
-# 		print "."
-# 	end
-# end
-# puts "Scores ready."
+print "Scores"
+# no checkpoints
+date_range.each do |date|
+	User.all.each do |user|
+		3.times do
+			user.workloads.create!(
+				score: rand(scores),
+				date: date)
+			print "."
+		end
+	end
+end
+puts ""
+puts "Scores ready."
