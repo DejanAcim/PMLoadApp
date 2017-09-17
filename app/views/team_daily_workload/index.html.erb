@@ -1,0 +1,27 @@
+<div class="panel-heading">
+  <h1>Unconfirmed Workloads</h1>
+</div>
+<table class="table">
+  <tr>
+    <th>Date</th>
+    <th>Checkpoint</th>
+    <th>PM</th>
+    <th>Score</th>
+    <th>Confirmed?</th>
+  </tr>
+
+<% @unconfirmed_workloads.each do |workload| %>
+  <tr>
+    <td><%= workload.date %></td>
+    <td><%= workload.checkpoint %></td>
+    <td><%= workload.user.full_name %></td>
+    <td><%= workload.score %></td>
+    <td><%= workload.confirmed ? "yes" : "no" %></td>
+    <td><%= link_to "Show", workload_path(workload), class: "btn btn-default btn-xs" %></td>
+    <td><%= link_to "Edit", edit_workload_path(workload), class: "btn btn-default btn-xs" %></td>
+    <td><%= link_to "Remove", workload, method: :delete, data: { confirm: "Are you sure?" },
+                                        class: "btn btn-danger btn-xs" %></td>
+  </tr>
+<% end %>
+</table>
+</div>

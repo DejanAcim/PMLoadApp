@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get  'static_pages/help'
   devise_for :users
   resources :workloads
+  resources :team_daily_workload
 end

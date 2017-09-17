@@ -19,6 +19,7 @@
             <li><%= link_to "Home",      root_path %></li>
             <li><%= link_to "Score it!", new_workload_path %></li>
             <li><%= link_to "Workloads", workloads_path %></li>
+            <li><%= link_to "Unconfirmed Workloads", team_daily_workload_index_path %></li>
             <li><%= link_to "Chart",     team_daily_workload_chart_path %>
             <li><%= link_to "Help",      static_pages_help_path %></li>
             <% if user_signed_in? %>
