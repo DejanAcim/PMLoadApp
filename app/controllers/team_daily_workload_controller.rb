@@ -4,7 +4,7 @@ class TeamDailyWorkloadController < ApplicationController
   end
 
   def index
-    @unconfirmed_workloads = Workload.where(confirmed: false)
+
   end
 
   def confirm

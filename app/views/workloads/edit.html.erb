@@ -1,0 +1,9 @@
+Total score: </br>
+<%= @total_score %>
+</br>
+Chosen: </br>
+<% @chosen_unconfirmed.each do |wl| %>
+	<%= wl.date %>
+	<%= wl.score %>
+<% end %>
+</br>

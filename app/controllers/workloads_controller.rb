@@ -1,14 +1,21 @@
 class WorkloadsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :show, :confirm]
 	before_action :set_workload, only: [:show, :edit]
 
+	def update
+	end
+
+	def confirm
+		chosen_unconfirmed = Workload.unconfirmed.where('date = ?', params[:date])
+		TeamDailyWorkload.create(day: params[:date], score: params[:score])
+		chosen_unconfirmed.update_all(confirmed: true)
+
+		redirect_to workloads_path
+	end
+
 	def index
+		@unconfirmed = Workload.unconfirmed
 		@workloads = Workload.all
-		@workload_today = Workload.where("date >= ?", Time.zone.today) # albo Date.today
-		@daily_availability = Workload.daily_availability
-		@daily_score = @workload_today.sum(:score)
-		@daily_workload = @daily_score / @daily_availability # =team_daily_workload
-		@workloads_per_day = Workload.all.group(:date)
 	end
 
 	def show
@@ -19,6 +26,7 @@ class WorkloadsController < ApplicationController
 	end
 
 	def edit
+
 	end
 
 	def create
@@ -52,14 +60,10 @@ class WorkloadsController < ApplicationController
 	private
 
 		def workload_params
-			params.require(:workload).permit(:score, :date, :checkpoint)
+			params.require(:workload).permit(:score, :date, :checkpoint, :confirmed)
 		end
 
 		def set_workload
 			@workload = Workload.find(params[:id])
-		end
-
-		def team_daily_workload_params
-			params.require(:team_daily_workload).permit(:score, :day)
 		end
 end

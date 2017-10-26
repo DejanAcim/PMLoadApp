@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 scores = 1..6
-date_range = ((Date.today-30.days)..Date.today).map(&:to_s)
+date_range = ((Date.today-10.days)..Date.today).map(&:to_s)
 
 print "User"
 7.times do
@@ -20,15 +20,15 @@ print "User"
 end
 puts "Users ready."
 
-print "Creating team's workloads"
-date_range.each do |date|
-	TeamDailyWorkload.create!(
-		day: date,
-		score: rand(scores))
-	print "."
-end
-puts ""
-puts "Workloads ready."
+# print "Creating team's workloads"
+# date_range.each do |date|
+# 	TeamDailyWorkload.create!(
+# 		day: date,
+# 		score: rand(scores))
+# 	print "."
+# end
+# puts ""
+# puts "Workloads ready."
 
 print "Scores"
 # no checkpoints
